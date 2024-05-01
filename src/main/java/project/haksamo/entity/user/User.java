@@ -1,11 +1,17 @@
-package project.haksamo.entity;
+package project.haksamo.entity.user;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import project.haksamo.entity.Address;
 
+/**
+ * Setter 사용은 지양하는 것이 좋기에 @Data삭제 , setter만을 위한 @data는 엔티티에는 좋지 않음
+ */
 @Entity
-@Data
-@Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "users") @Getter
 public class User {
 
     @Id
@@ -15,24 +21,35 @@ public class User {
 
     // Spring Security에서는 username과 password를 받기 때문에 email이 아닌 username으로 설정(이후에 수정 예정)
         // username에 들어가는 데이터는 email 형태
-    @Column(name = "username", nullable = false)
+    @Column(nullable = false)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
-    // 임시로 String 타입으로 설정
-    @Column
-    private String address;
+    @Embedded
+    private Address address;
 
     @Enumerated(EnumType.STRING)
-    @Column
     private Provider provider;
 
     @Column(name = "is_deleted")
     private Boolean isDeleted;
 
     public enum Provider { APP, KAKAO, NAVER }
+
+    public User() {
+    }
+
+    /**
+     * Setter 대신 Builder패턴 롬복 제공 기능 이용 => UserService에서도 set을 사용한 객체 생성이 아닌 builder 패턴 사용
+     */
+    @Builder
+    public User(String username, String password, Provider provider){
+        this.username = username;
+        this.password = password;
+        this.provider = provider;
+    }
 
 }
 

@@ -2,7 +2,7 @@ package project.haksamo.dto;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import project.haksamo.entity.User;
+import project.haksamo.entity.user.User;
 
 import java.util.Collection;
 import java.util.Collections;

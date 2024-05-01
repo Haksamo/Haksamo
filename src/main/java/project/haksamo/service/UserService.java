@@ -3,7 +3,7 @@ package project.haksamo.service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import project.haksamo.dto.SignupDTO;
-import project.haksamo.entity.User;
+import project.haksamo.entity.user.User;
 import project.haksamo.repository.UserRepository;
 
 @Service
@@ -27,10 +27,11 @@ public class UserService {
             return;
         }
 
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(bCryptPasswordEncoder.encode(password));
-        user.setProvider(User.Provider.APP);
+        User user = User.builder()
+                .username(username)
+                .password(bCryptPasswordEncoder.encode(password))
+                .provider(User.Provider.APP)
+                .build();
 
         userRepository.save(user);
     }

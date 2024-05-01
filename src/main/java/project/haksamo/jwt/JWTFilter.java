@@ -10,7 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 import project.haksamo.dto.CustomUserDetails;
-import project.haksamo.entity.User;
+import project.haksamo.entity.user.User;
 
 import java.io.IOException;
 
@@ -52,9 +52,11 @@ public class JWTFilter extends OncePerRequestFilter {
         String username = jwtUtil.getUsername(token);
 //        String provider = jwtUtil.getProvider(token); // 사용자 권한 관련 코드
 
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword("temppassword");
+        User user = User.builder()
+                        .username(username)
+                                .password("temppassword")
+                                        .build();
+
 //        userEntity.setProvider(User.Provider.valueOf(provider)); // 사용자 권한 관련 코드
 
         //UserDetails에 회원 정보 객체 담기
