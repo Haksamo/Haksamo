@@ -2,9 +2,13 @@ package project.haksamo.entity.user;
 
 import jakarta.persistence.*;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import project.haksamo.entity.Address;
+import project.haksamo.entity.Class;
+import project.haksamo.entity.Review;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Setter 사용은 지양하는 것이 좋기에 @Data삭제 , setter만을 위한 @data는 엔티티에는 좋지 않음
@@ -15,7 +19,7 @@ import project.haksamo.entity.Address;
 public class User {
 
     @Id
-    @Column(name = "user_id")
+    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
@@ -23,6 +27,12 @@ public class User {
         // username에 들어가는 데이터는 email 형태
     @Column(nullable = false)
     private String username;
+
+    @OneToMany(mappedBy = "user")
+    private List<Class> classList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviewList = new ArrayList<>();
 
     @Column(nullable = false)
     private String password;
