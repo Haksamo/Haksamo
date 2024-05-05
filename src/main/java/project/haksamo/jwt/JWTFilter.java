@@ -65,9 +65,10 @@ public class JWTFilter extends OncePerRequestFilter {
         System.out.println("token expiration time is ok");
 
         String username = jwtUtil.getUsername(token);
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword("temppassword");
+        User user = User.builder()
+                .username(username)
+                .password("temppassword")
+                .build();
         User.Provider provider = jwtUtil.getProvider(token);
 
         if (provider == User.Provider.APP){ // 앱 회원일 경우

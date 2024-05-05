@@ -1,6 +1,7 @@
 package project.haksamo.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
@@ -21,6 +22,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    private String nickname;
+
     // 임시로 String 타입으로 설정
     @Column
     private String address;
@@ -33,6 +36,14 @@ public class User {
     private Boolean isDeleted;
 
     public enum Provider { APP, KAKAO, NAVER }
+
+    @Builder
+    public User(String username, String password, Provider provider, String nickname){
+        this.username = username;
+        this.password = password;
+        this.provider = provider;
+        this.nickname = nickname;
+    }
 
 }
 
