@@ -10,6 +10,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import project.haksamo.dto.CustomUserDetails;
+import project.haksamo.entity.User;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -45,14 +46,9 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
         String username = customUserDetails.getUsername();
+        User.Provider provider = customUserDetails.getProvider();
 
-//        사용자 권한 관련 코드
-//        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-//        Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
-//        GrantedAuthority auth = iterator.next();
-//        String provider = auth.getAuthority();
-
-        String token = jwtUtil.createJwt(username, 60*60*1000L); // 1시간
+        String token = jwtUtil.createJwt(username, provider, 60*60*1000L); // 1시간
         response.addHeader("Authorization", "Bearer " + token);
 
     }

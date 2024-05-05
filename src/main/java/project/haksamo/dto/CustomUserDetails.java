@@ -17,16 +17,6 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//      사용자 권한 관련 코드
-//      Collection<GrantedAuthority> collection = new ArrayList<>();
-//      collection.add(new GrantedAuthority() {
-//          @Override
-//          public String getAuthority() {
-//              return user.getProvider().name();
-//          }
-//      });
-//      return collection;
-
 //      사용자의 권한(ex) admin)을 별도로 관리하지 않으므로 빈 컬렉션 반환
         return Collections.emptyList();
     }
@@ -40,6 +30,8 @@ public class CustomUserDetails implements UserDetails {
     public String getUsername() {
         return user.getUsername();
     }
+
+    public User.Provider getProvider(){ return user.getProvider();}
 
     @Override
     public boolean isAccountNonExpired() {
