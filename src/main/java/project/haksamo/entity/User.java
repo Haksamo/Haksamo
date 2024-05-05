@@ -37,6 +37,9 @@ public class User {
 
     public enum Provider { APP, KAKAO, NAVER }
 
+    public User() {
+    }
+
     @Builder
     public User(String username, String password, Provider provider, String nickname){
         this.username = username;
