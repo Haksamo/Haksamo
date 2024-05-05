@@ -9,7 +9,6 @@ import project.haksamo.entity.Address;
 @Getter
 public class Teacher extends User{
 
-    private String nickname;
     private int year;
     private int month;
     private int day;
@@ -26,4 +25,16 @@ public class Teacher extends User{
     private String shortIntroduction;
     private int count;
 
+
+    public void createDetails(String shortIntroduction, int year, boolean gender,
+                              String school, String graduationCondition, String educationStyle,
+                              Address schoolAddress) {
+        this.selfIntroduction = shortIntroduction;
+        this.year = year;
+        this.gender = gender;
+        this.school = school;
+        this.graduationCondition = graduationCondition;
+        this.educationStyle = educationStyle;
+        this.campusAddress= schoolAddress;
+    }
 }

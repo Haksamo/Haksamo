@@ -3,6 +3,7 @@ package project.haksamo.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import project.haksamo.dto.SignupDTO;
+import project.haksamo.dto.SignupResponseDto;
 import project.haksamo.service.UserService;
 
 @RestController
@@ -17,9 +18,9 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signup(@RequestBody SignupDTO signupDTO){
-        userService.signupProcess(signupDTO);
-        return "ok";
+    public SignupResponseDto signup(@RequestBody SignupDTO signupDTO){
+        return userService.signupProcess(signupDTO);
     }
+
 
 }

@@ -28,6 +28,8 @@ public class User {
     @Column(nullable = false)
     private String username;
 
+    private String nickname;
+
     @OneToMany(mappedBy = "user")
     private List<Class> classList = new ArrayList<>();
 
@@ -55,10 +57,11 @@ public class User {
      * Setter 대신 Builder패턴 롬복 제공 기능 이용 => UserService에서도 set을 사용한 객체 생성이 아닌 builder 패턴 사용
      */
     @Builder
-    public User(String username, String password, Provider provider){
+    public User(String username, String password, Provider provider, String nickname){
         this.username = username;
         this.password = password;
         this.provider = provider;
+        this.nickname = nickname;
     }
 
 }

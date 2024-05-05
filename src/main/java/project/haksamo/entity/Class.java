@@ -1,6 +1,7 @@
 package project.haksamo.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import project.haksamo.entity.user.User;
 
@@ -27,4 +28,12 @@ public class Class {
         user.getClassList().add(this);
     }
 
+    @Builder
+    public Class(Address educationAddress, String educationSubject) {
+        this.educationAddress = educationAddress;
+        this.educationSubject = educationSubject;
+    }
+
+    public Class() {
+    }
 }

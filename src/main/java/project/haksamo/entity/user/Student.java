@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @Getter
 public class Student extends User{
 
-    private String nickname;
     private String shortIntroduction;
     private int age;
     private boolean gender;

@@ -1,6 +1,7 @@
 package project.haksamo.dto;
 
 import lombok.Data;
+import project.haksamo.entity.Address;
 import project.haksamo.entity.Class;
 import project.haksamo.entity.user.Teacher;
 import project.haksamo.entity.user.User;
@@ -16,9 +17,11 @@ public class TeacherSingUpDto {
     private int year;
     private boolean gender;
     private String school;
+    private Address schoolAddress;
     private String graduationCondition;
     private String educationStyle;
-    private List<ClassDto> classList;
+    private List<String> classList;
+    private List<Address> addressList;
 
 //    public TeacherSingUpDto(Teacher teacher, User user) {
 //        this.shortIntroduction = teacher.getShortIntroduction();

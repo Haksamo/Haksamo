@@ -3,6 +3,7 @@ package project.haksamo.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import project.haksamo.dto.TeacherSingUpDto;
 import project.haksamo.service.TeacherService;
@@ -13,9 +14,9 @@ public class TeacherController {
 
     private TeacherService teacherService;
 
-//    @PostMapping("/signup/teacher")
-//    public int registerTeacher(@RequestBody TeacherSingUpDto teacherDto){
-//
-////        return teacherService.singUp(teacherDto);
-//    }
+    @PostMapping("/signup/teacher")
+    public int registerTeacher(@RequestBody TeacherSingUpDto teacherDto, @RequestParam Integer userId){
+
+        return teacherService.singUp(teacherDto,userId);
+    }
 }
