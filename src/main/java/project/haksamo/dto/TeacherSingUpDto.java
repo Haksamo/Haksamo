@@ -2,13 +2,7 @@ package project.haksamo.dto;
 
 import lombok.Data;
 import project.haksamo.entity.Address;
-import project.haksamo.entity.Class;
-import project.haksamo.entity.user.Teacher;
-import project.haksamo.entity.user.User;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 public class TeacherSingUpDto {

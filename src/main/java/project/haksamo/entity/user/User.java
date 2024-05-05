@@ -45,7 +45,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Provider provider;
 
-    @Column(name = "is_deleted")
     private Boolean isDeleted;
 
     public enum Provider { APP, KAKAO, NAVER }

@@ -11,7 +11,6 @@ public class ClassService {
 
     private ClassRepository classRepository;
 
-
     public void addClass(Class aClass) {
         classRepository.save(aClass);
     }

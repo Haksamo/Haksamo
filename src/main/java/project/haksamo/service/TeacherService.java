@@ -8,7 +8,6 @@ import project.haksamo.entity.Address;
 import project.haksamo.entity.Class;
 import project.haksamo.entity.user.Teacher;
 import project.haksamo.entity.user.User;
-import project.haksamo.repository.ClassRepository;
 import project.haksamo.repository.TeacherRepository;
 import project.haksamo.repository.UserRepository;
 

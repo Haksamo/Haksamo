@@ -63,7 +63,7 @@ public class UserService {
                     .password(bCryptPasswordEncoder.encode(password))
                     .provider(User.Provider.APP)
                     .nickname(signupDTO.getNickname())
-                    .build();;
+                    .build();
             studentRepository.save(student);
 
             int userId = userRepository.findById(student.getUserId()).get().getUserId();
