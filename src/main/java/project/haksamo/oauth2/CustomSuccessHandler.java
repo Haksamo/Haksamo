@@ -31,7 +31,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
         String token = jwtUtil.createJwt(username, provider,60*60*1000L); // 1시간
         response.addCookie(createCookie("Authorization", token));
-        response.sendRedirect("http://localhost:8080/test"); // 프론트측 url
+        response.sendRedirect("http://15.164.166.24:8080/test"); // 프론트측 url
     }
 
     private Cookie createCookie(String key, String value) {
