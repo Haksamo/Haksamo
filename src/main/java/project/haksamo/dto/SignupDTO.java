@@ -7,5 +7,6 @@ public class SignupDTO {
 
     private String username; // username = email, Spring Security 때문에 username으로 설정함
     private String password;
-
+    private String role;
+    private String nickname;
 }

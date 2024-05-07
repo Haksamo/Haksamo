@@ -9,7 +9,7 @@ import project.haksamo.dto.CustomOAuth2User;
 import project.haksamo.dto.KakaoResponse;
 import project.haksamo.dto.NaverResponse;
 import project.haksamo.dto.OAuth2Response;
-import project.haksamo.entity.User;
+import project.haksamo.entity.user.User;
 import project.haksamo.repository.UserRepository;
 
 @Service
@@ -49,10 +49,11 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         User existData = userRepository.findByUsername(oAuth2Response.getEmail());
 
         if (existData == null) {
-            User user = new User();
-            user.setUsername(oAuth2Response.getEmail());
-            user.setPassword("oauthtemppassword");
-            user.setProvider(provider);
+            User user = User.builder()
+                            .username(oAuth2Response.getEmail())
+                                    .password("oauthtemppassword")
+                                            .provider(provider)
+                    .build();
 
             userRepository.save(user);
 

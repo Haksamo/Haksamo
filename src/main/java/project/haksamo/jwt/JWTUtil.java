@@ -3,7 +3,8 @@ package project.haksamo.jwt;
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import project.haksamo.entity.User;
+import project.haksamo.entity.user.User;
+
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;

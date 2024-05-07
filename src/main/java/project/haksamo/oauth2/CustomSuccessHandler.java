@@ -8,7 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import project.haksamo.dto.CustomOAuth2User;
-import project.haksamo.entity.User;
+import project.haksamo.entity.user.User;
 import project.haksamo.jwt.JWTUtil;
 
 import java.io.IOException;

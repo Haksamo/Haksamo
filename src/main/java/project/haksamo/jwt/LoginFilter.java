@@ -10,7 +10,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import project.haksamo.dto.CustomUserDetails;
-import project.haksamo.entity.User;
+import project.haksamo.entity.user.User;
 
 import java.util.Collection;
 import java.util.Iterator;

@@ -12,7 +12,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 import project.haksamo.dto.CustomOAuth2User;
 import project.haksamo.dto.CustomUserDetails;
-import project.haksamo.entity.User;
+import project.haksamo.entity.user.User;
+
 
 import java.io.IOException;
 import java.util.Arrays;
