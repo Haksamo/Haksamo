@@ -70,7 +70,8 @@ public class SecurityConfig {
                         .successHandler(customSuccessHandler)
                 );
 
-
+        // 네이버 소셜 로그인 요청 경로 GET : /oauth2/authorization/naver
+        // 카카오 소셜 로그인 요청 경로 GET : /oauth2/authorization/kakao
         http
                 .securityMatchers((auth) -> auth.requestMatchers("/oauth2/**","/login/oauth2/**"));
 
