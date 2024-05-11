@@ -12,8 +12,9 @@ public class TeacherSingUpDto {
     private boolean gender;
     private String school;
     private Address schoolAddress;
+    private String major;
     private String graduationCondition;
-    private String educationStyle;
+    private String introduction;
     private List<String> classList;
     private List<Address> addressList;
 

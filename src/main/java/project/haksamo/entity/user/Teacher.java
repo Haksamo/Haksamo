@@ -27,14 +27,16 @@ public class Teacher extends User{
 
 
     public void createDetails(String shortIntroduction, int year, boolean gender,
-                              String school, String graduationCondition, String educationStyle,
-                              Address schoolAddress) {
-        this.selfIntroduction = shortIntroduction;
+                              String school, Address schoolAddress,String major,
+                              String graduationCondition, String introduction) {
+        this.shortIntroduction = shortIntroduction;
         this.year = year;
         this.gender = gender;
         this.school = school;
+        this.campusAddress = schoolAddress;
+        this.major = major;
         this.graduationCondition = graduationCondition;
-        this.educationStyle = educationStyle;
-        this.campusAddress= schoolAddress;
+        this.selfIntroduction = introduction;
+
     }
 }
