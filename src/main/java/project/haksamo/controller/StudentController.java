@@ -16,7 +16,7 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping("/signup/student")
-    public int registerTeacher(@RequestBody StudentSignUpDto studentSignUpDto, @RequestParam Integer userId){
+    public int registerStudent(@RequestBody StudentSignUpDto studentSignUpDto, @RequestParam Integer userId){
 
         return studentService.singUp(studentSignUpDto,userId);
     }
