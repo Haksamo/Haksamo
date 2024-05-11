@@ -23,7 +23,8 @@ public class Class {
     /**
      * 연관 관계 메서드
      */
-    public void addUser(User user){
+    public void
+    addUser(User user){
         this.user=user;
         user.getClassList().add(this);
     }

@@ -24,13 +24,15 @@ public class TeacherService {
         Teacher findTeacher = teacherRepository.findById(userId).get();
         User findUser = userRepository.findById(userId).get();
 
-        findTeacher.createDetails(teacherDto.getShortIntroduction(),
+        findTeacher.createDetails(
+                teacherDto.getShortIntroduction(),
                 teacherDto.getYear(),
                 teacherDto.isGender(),
                 teacherDto.getSchool(),
+                teacherDto.getSchoolAddress(),
+                teacherDto.getMajor(),
                 teacherDto.getGraduationCondition(),
-                teacherDto.getEducationStyle(),
-                teacherDto.getSchoolAddress()
+                teacherDto.getIntroduction()
                 );
 
         for(Address address:teacherDto.getAddressList()){
