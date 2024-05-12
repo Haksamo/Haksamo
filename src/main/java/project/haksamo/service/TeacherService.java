@@ -20,23 +20,23 @@ public class TeacherService {
     private UserRepository userRepository;
     private ClassService classService;
 
-    public int singUp(TeacherSingUpDto teacherDto, Integer userId){
+    public int singUp(TeacherSingUpDto teacherSingUpDto, Integer userId){
         Teacher findTeacher = teacherRepository.findById(userId).get();
         User findUser = userRepository.findById(userId).get();
 
         findTeacher.createDetails(
-                teacherDto.getShortIntroduction(),
-                teacherDto.getYear(),
-                teacherDto.isGender(),
-                teacherDto.getSchool(),
-                teacherDto.getSchoolAddress(),
-                teacherDto.getMajor(),
-                teacherDto.getGraduationCondition(),
-                teacherDto.getIntroduction()
+                teacherSingUpDto.getShortIntroduction(),
+                teacherSingUpDto.getYear(),
+                teacherSingUpDto.isGender(),
+                teacherSingUpDto.getSchool(),
+                teacherSingUpDto.getSchoolAddress(),
+                teacherSingUpDto.getMajor(),
+                teacherSingUpDto.getGraduationCondition(),
+                teacherSingUpDto.getIntroduction()
                 );
 
-        for(Address address:teacherDto.getAddressList()){
-            for(String subject:teacherDto.getClassList()){
+        for(Address address:teacherSingUpDto.getAddressList()){
+            for(String subject:teacherSingUpDto.getClassList()){
                 Class aClass = Class.builder()
                         .educationAddress(address)
                         .educationSubject(subject)
