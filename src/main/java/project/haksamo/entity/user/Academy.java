@@ -20,4 +20,11 @@ public class Academy extends User {
 
     private String introduction;
     private int count;
+
+    public void createDetails(String shortIntroduction, String target, Address address, String introduction) {
+        this.shortIntroduction = shortIntroduction;
+        this.target = target;
+        this.address = address;
+        this.introduction = introduction;
+    }
 }
